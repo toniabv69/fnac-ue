@@ -1,0 +1,585 @@
+[gd_scene load_steps=31 format=3 uid="uid://bshrvoxmlmqe3"]
+
+[ext_resource type="Script" uid="uid://g67ycfkj4ctr" path="res://night.gd" id="1_potvd"]
+[ext_resource type="Texture2D" uid="uid://b667lyr037krt" path="res://assets/textures/cam_button.png" id="1_ti0gc"]
+[ext_resource type="Texture2D" uid="uid://cv88fhjsshw0e" path="res://assets/textures/map.png" id="3_au7ji"]
+[ext_resource type="Texture2D" uid="uid://cft0d5npjyh3m" path="res://assets/textures/cam_background.png" id="4_hfxqj"]
+[ext_resource type="Texture2D" uid="uid://c1jpbvqtafw7a" path="res://assets/textures/door_button_open.png" id="4_w6f1k"]
+[ext_resource type="Texture2D" uid="uid://c1mo53h83dkqo" path="res://assets/textures/office.png" id="5_kwyxo"]
+[ext_resource type="Texture2D" uid="uid://cixdryrr4s1gu" path="res://assets/textures/eyes.png" id="6_5quco"]
+[ext_resource type="Texture2D" uid="uid://cr5kbv60ctr8k" path="res://assets/textures/eyes_mirrored.png" id="7_v6glx"]
+[ext_resource type="AudioStream" uid="uid://bq1oup0o7rmle" path="res://assets/audio/run_left.mp3" id="8_yp3re"]
+[ext_resource type="AudioStream" uid="uid://q7soq3aiq4e" path="res://assets/audio/bang.mp3" id="9_p41vk"]
+[ext_resource type="AudioStream" uid="uid://c7v0lk110fe6d" path="res://assets/audio/vinnie_left.mp3" id="10_f0kyl"]
+[ext_resource type="AudioStream" uid="uid://ca4odlhesrlou" path="res://assets/audio/door.mp3" id="11_m3bwk"]
+[ext_resource type="AudioStream" uid="uid://dyrbvo5jsylob" path="res://assets/audio/cam_switch.mp3" id="12_pc6xw"]
+[ext_resource type="AudioStream" uid="uid://c3l7cn3mv6s6j" path="res://assets/audio/ambience.mp3" id="13_3d8eq"]
+[ext_resource type="AudioStream" uid="uid://c1bdsuucasccq" path="res://assets/audio/jumpscare.mp3" id="14_a6gaq"]
+[ext_resource type="AudioStream" uid="uid://c3bovj1bdfqyt" path="res://assets/audio/power_out.mp3" id="15_p0pfs"]
+[ext_resource type="AudioStream" uid="uid://c1anxfk0gabuh" path="res://assets/audio/music_box.mp3" id="16_cyb1m"]
+[ext_resource type="AudioStream" uid="uid://b5i3vya1mofs8" path="res://assets/audio/lure.mp3" id="17_tm1kj"]
+[ext_resource type="Texture2D" uid="uid://d1hmduk1tywrw" path="res://assets/textures/rat_warning.png" id="19_22ks8"]
+[ext_resource type="Texture2D" uid="uid://hn7apu1ex6u5" path="res://assets/textures/vinnie_warning.png" id="20_oe6qj"]
+[ext_resource type="Texture2D" uid="uid://pt1qp2ve3wpq" path="res://assets/textures/old_candy_warning.png" id="21_oe6qj"]
+[ext_resource type="Script" uid="uid://bnddqvsf3cgup" path="res://addons/arduino/arduino.cs" id="22_m3c6e"]
+[ext_resource type="Texture2D" uid="uid://dcr01xy3f6osa" path="res://assets/textures/door_texture.png" id="23_jdj08"]
+[ext_resource type="Texture2D" uid="uid://c4dkll275gkbx" path="res://assets/textures/vent_texture.png" id="24_4fvn6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hfxqj"]
+font_size = 34
+
+[sub_resource type="Theme" id="Theme_hfxqj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1kdw"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_cw0o3"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ds4mg"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_korr0"]
+font_size = 30
+
+[node name="night" type="Node2D"]
+script = ExtResource("1_potvd")
+
+[node name="cam_map" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1460, 400)
+texture = ExtResource("3_au7ji")
+
+[node name="music_box" type="Sprite2D" parent="cam_map"]
+visible = false
+position = Vector2(-1000, 300)
+
+[node name="temp_info" type="Label" parent="cam_map"]
+offset_left = -1200.0
+offset_top = -300.0
+offset_right = -1177.0
+offset_bottom = -277.0
+
+[node name="cam_background" type="Sprite2D" parent="cam_map"]
+z_index = -2
+position = Vector2(-503, 139)
+texture = ExtResource("4_hfxqj")
+
+[node name="cam_candy_eyes" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 1
+position = Vector2(-554, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("6_5quco")
+
+[node name="cam_cindy_eyes" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 1
+position = Vector2(554, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("7_v6glx")
+
+[node name="cam_chester_eyes" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 1
+scale = Vector2(3, 3)
+texture = ExtResource("6_5quco")
+
+[node name="cam_vinnie_eyes_1" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 1
+position = Vector2(-450, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("6_5quco")
+
+[node name="cam_vinnie_eyes_2" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("7_v6glx")
+
+[node name="cam_vinnie_eyes_3" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 1
+position = Vector2(600, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("6_5quco")
+
+[node name="cam_penguin_eyes" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 1
+position = Vector2(0, 300)
+scale = Vector2(2, 2)
+texture = ExtResource("6_5quco")
+
+[node name="cam_cat_detector" type="Sprite2D" parent="cam_map/cam_background"]
+visible = false
+z_index = 3
+position = Vector2(-359, -481)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_22ks8")
+
+[node name="cam_no_connection_label" type="Label" parent="cam_map"]
+offset_left = -612.0
+offset_top = 79.0
+offset_right = -325.0
+offset_bottom = 126.0
+text = "NO CONNECTION"
+label_settings = SubResource("LabelSettings_hfxqj")
+
+[node name="cam_buttons" type="Control" parent="cam_map"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cam_1a" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -25.0
+offset_top = -312.0
+offset_right = 6.0
+offset_bottom = -281.0
+focus_neighbor_left = NodePath("../cam_7")
+focus_neighbor_right = NodePath("../cam_3")
+focus_neighbor_bottom = NodePath("../cam_1b")
+theme_override_colors/icon_pressed_color = Color(0, 1, 0, 1)
+text = "1A"
+
+[node name="cam_1b" type="Button" parent="cam_map/cam_buttons"]
+offset_left = 100.0
+offset_top = -205.0
+offset_right = 131.0
+offset_bottom = -174.0
+focus_neighbor_left = NodePath("../cam_4")
+focus_neighbor_top = NodePath("../cam_1a")
+focus_neighbor_right = NodePath("../cam_10")
+focus_neighbor_bottom = NodePath("../cam_2")
+text = "1B"
+
+[node name="cam_2" type="Button" parent="cam_map/cam_buttons"]
+offset_left = 115.0
+offset_top = -90.0
+offset_right = 146.0
+offset_bottom = -59.0
+focus_neighbor_left = NodePath("../cam_4")
+focus_neighbor_top = NodePath("../cam_1b")
+focus_neighbor_right = NodePath("../cam_10")
+focus_neighbor_bottom = NodePath("../cam_9")
+text = "2"
+
+[node name="cam_3" type="Button" parent="cam_map/cam_buttons"]
+offset_left = 178.0
+offset_top = -313.0
+offset_right = 209.0
+offset_bottom = -282.0
+focus_neighbor_left = NodePath("../cam_1a")
+focus_neighbor_right = NodePath("../cam_10")
+focus_neighbor_bottom = NodePath("../cam_1b")
+text = "3"
+
+[node name="cam_4" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -38.0
+offset_top = -30.0
+offset_right = -7.0
+offset_bottom = 1.0
+focus_neighbor_left = NodePath("../cam_5")
+focus_neighbor_top = NodePath("../cam_1b")
+focus_neighbor_right = NodePath("../cam_9")
+focus_neighbor_bottom = NodePath("../cam_8")
+text = "4"
+
+[node name="cam_5" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -278.0
+offset_top = -25.0
+offset_right = -247.0
+offset_bottom = 6.0
+focus_neighbor_left = NodePath("../cam_6")
+focus_neighbor_top = NodePath("../cam_7")
+focus_neighbor_right = NodePath("../cam_4")
+focus_neighbor_bottom = NodePath("../cam_8")
+text = "5"
+
+[node name="cam_6" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -380.0
+offset_top = -300.0
+offset_right = -349.0
+offset_bottom = -269.0
+focus_neighbor_right = NodePath("../cam_7")
+focus_neighbor_bottom = NodePath("../cam_5")
+text = "6"
+
+[node name="cam_7" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -165.0
+offset_top = -300.0
+offset_right = -134.0
+offset_bottom = -269.0
+focus_neighbor_left = NodePath("../cam_6")
+focus_neighbor_right = NodePath("../cam_1a")
+focus_neighbor_bottom = NodePath("../cam_5")
+text = "7"
+
+[node name="cam_8" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -190.0
+offset_top = 85.0
+offset_right = -159.0
+offset_bottom = 116.0
+focus_neighbor_left = NodePath("../cam_5")
+focus_neighbor_top = NodePath("../cam_4")
+focus_neighbor_right = NodePath("../cam_9")
+focus_neighbor_bottom = NodePath("../cam_11")
+text = "8"
+
+[node name="cam_9" type="Button" parent="cam_map/cam_buttons"]
+offset_left = 170.0
+offset_top = 105.0
+offset_right = 201.0
+offset_bottom = 136.0
+focus_neighbor_left = NodePath("../cam_8")
+focus_neighbor_top = NodePath("../cam_4")
+focus_neighbor_bottom = NodePath("../cam_11")
+text = "9"
+
+[node name="cam_10" type="Button" parent="cam_map/cam_buttons"]
+offset_left = 323.0
+offset_top = -205.0
+offset_right = 354.0
+offset_bottom = -174.0
+focus_neighbor_left = NodePath("../cam_1b")
+focus_neighbor_top = NodePath("../cam_3")
+focus_neighbor_bottom = NodePath("../cam_2")
+text = "10
+"
+
+[node name="cam_11" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -15.0
+offset_top = 200.0
+offset_right = 16.0
+offset_bottom = 231.0
+focus_neighbor_left = NodePath("../cam_8")
+focus_neighbor_top = NodePath("../cam_4")
+focus_neighbor_right = NodePath("../cam_9")
+text = "11"
+
+[node name="wind_button" type="Button" parent="cam_map/cam_buttons"]
+visible = false
+offset_left = -1400.0
+offset_top = 300.0
+offset_right = -1150.0
+offset_bottom = 400.0
+focus_mode = 0
+theme = SubResource("Theme_hfxqj")
+theme_override_constants/outline_size = 0
+text = "Press to Wind Up
+the Music Box"
+
+[node name="audio_button" type="Button" parent="cam_map/cam_buttons"]
+offset_left = -750.0
+offset_top = 300.0
+offset_right = -500.0
+offset_bottom = 400.0
+focus_mode = 0
+text = "Play Audio"
+
+[node name="power_meter" type="Label" parent="."]
+z_index = 5
+z_as_relative = false
+offset_left = 50.0
+offset_top = 960.0
+offset_right = 90.0
+offset_bottom = 983.0
+label_settings = SubResource("LabelSettings_c1kdw")
+
+[node name="clock" type="Label" parent="."]
+z_index = 5
+z_as_relative = false
+offset_left = 1780.0
+offset_top = 55.0
+offset_right = 1820.0
+offset_bottom = 97.0
+label_settings = SubResource("LabelSettings_cw0o3")
+
+[node name="usage_text" type="Label" parent="."]
+z_index = 5
+z_as_relative = false
+offset_left = 50.0
+offset_top = 1010.0
+offset_right = 134.0
+offset_bottom = 1047.0
+text = "Usage: "
+label_settings = SubResource("LabelSettings_ds4mg")
+
+[node name="usage" type="Sprite2D" parent="."]
+position = Vector2(260, 1030)
+
+[node name="night_text" type="Label" parent="."]
+offset_left = 1780.0
+offset_top = 20.0
+offset_right = 1820.0
+offset_bottom = 43.0
+label_settings = SubResource("LabelSettings_korr0")
+
+[node name="cam_anim_placeholder_open" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="cam_anim_placeholder_close" type="Timer" parent="."]
+
+[node name="candy_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="cindy_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="cam_jumpscare_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="vinnie_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="vinnie_advance_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="old_candy_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="penguin_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="blank_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="audio_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="chester_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="cat_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="rat_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="rat_run_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="night1_ai_increase_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="office_background" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(960, 540)
+texture = ExtResource("5_kwyxo")
+
+[node name="left_door_eyes" type="Sprite2D" parent="office_background"]
+visible = false
+z_as_relative = false
+position = Vector2(-700, -100)
+texture = ExtResource("6_5quco")
+
+[node name="right_door_eyes" type="Sprite2D" parent="office_background"]
+visible = false
+z_as_relative = false
+position = Vector2(700, -100)
+texture = ExtResource("7_v6glx")
+
+[node name="vent_eyes" type="Sprite2D" parent="office_background"]
+visible = false
+z_as_relative = false
+position = Vector2(10, -350)
+texture = ExtResource("6_5quco")
+
+[node name="left_door_sprite" type="Sprite2D" parent="office_background"]
+visible = false
+z_index = 6
+position = Vector2(-720, 11.0001)
+scale = Vector2(0.9369, 0.9)
+texture = ExtResource("23_jdj08")
+
+[node name="right_door_sprite" type="Sprite2D" parent="office_background"]
+visible = false
+z_index = 6
+position = Vector2(741, 11)
+scale = Vector2(0.9369, 0.9)
+texture = ExtResource("23_jdj08")
+
+[node name="vent_door_sprite" type="Sprite2D" parent="office_background"]
+visible = false
+z_index = 6
+position = Vector2(7.99994, -367)
+scale = Vector2(0.68, 0.878)
+texture = ExtResource("24_4fvn6")
+
+[node name="audio_run_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_yp3re")
+volume_db = -20.248
+mix_target = 1
+
+[node name="audio_bang_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_p41vk")
+volume_db = -0.716
+
+[node name="audio_vinnie_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_f0kyl")
+volume_db = -22.088
+
+[node name="audio_door_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_m3bwk")
+volume_db = -20.247
+
+[node name="audio_change_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pc6xw")
+volume_db = -19.327
+
+[node name="audio_ambience_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_3d8eq")
+volume_db = -25.71
+autoplay = true
+
+[node name="audio_jumpscare_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_a6gaq")
+
+[node name="audio_power_out_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_p0pfs")
+volume_db = -14.5
+
+[node name="audio_music_box_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_cyb1m")
+volume_db = -54.0
+autoplay = true
+
+[node name="audio_cams_player" type="AudioStreamPlayer" parent="."]
+volume_db = -16.546
+
+[node name="audio_lure_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_tm1kj")
+volume_db = -20.473
+
+[node name="rat_left_warning" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(40, 481)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_22ks8")
+
+[node name="rat_right_warning" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(1880, 481)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_22ks8")
+
+[node name="vinnie_left_warning" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(40, 552)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("20_oe6qj")
+
+[node name="vinnie_right_warning" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(1880, 552)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("20_oe6qj")
+
+[node name="old_candy_left_warning" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(40, 623)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("21_oe6qj")
+
+[node name="old_candy_right_warning" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(1880, 623)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("21_oe6qj")
+
+[node name="arduino" type="Node" parent="."]
+script = ExtResource("22_m3c6e")
+PortName = "ttyACM0"
+metadata/_custom_type_script = "uid://bnddqvsf3cgup"
+
+[node name="office_buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cam_button" type="TextureButton" parent="office_buttons"]
+offset_left = 448.0
+offset_top = 963.0
+offset_right = 1472.0
+offset_bottom = 1059.0
+texture_normal = ExtResource("1_ti0gc")
+
+[node name="left_door_button" type="TextureButton" parent="office_buttons"]
+z_index = 3
+z_as_relative = false
+offset_left = 450.0
+offset_top = 475.0
+offset_right = 550.0
+offset_bottom = 575.0
+focus_mode = 0
+texture_normal = ExtResource("4_w6f1k")
+
+[node name="right_door_button" type="TextureButton" parent="office_buttons"]
+z_index = 3
+z_as_relative = false
+offset_left = 1400.0
+offset_top = 475.0
+offset_right = 1500.0
+offset_bottom = 575.0
+focus_mode = 0
+texture_normal = ExtResource("4_w6f1k")
+
+[node name="vent_door_button" type="TextureButton" parent="office_buttons"]
+z_index = 3
+z_as_relative = false
+offset_left = 700.0
+offset_top = 130.0
+offset_right = 800.0
+offset_bottom = 230.0
+focus_mode = 0
+texture_normal = ExtResource("4_w6f1k")
+
+[connection signal="button_down" from="cam_map/cam_buttons/cam_1a" to="." method="_on_cam_1a_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_1b" to="." method="_on_cam_1b_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_2" to="." method="_on_cam_2_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_3" to="." method="_on_cam_3_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_4" to="." method="_on_cam_4_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_5" to="." method="_on_cam_5_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_6" to="." method="_on_cam_6_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_7" to="." method="_on_cam_7_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_8" to="." method="_on_cam_8_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_9" to="." method="_on_cam_9_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_10" to="." method="_on_cam_10_button_down"]
+[connection signal="button_down" from="cam_map/cam_buttons/cam_11" to="." method="_on_cam_11_button_down"]
+[connection signal="mouse_entered" from="cam_map/cam_buttons/wind_button" to="." method="_on_wind_button_mouse_entered"]
+[connection signal="mouse_exited" from="cam_map/cam_buttons/wind_button" to="." method="_on_wind_button_mouse_exited"]
+[connection signal="button_down" from="cam_map/cam_buttons/audio_button" to="." method="_on_audio_button_down"]
+[connection signal="timeout" from="cam_anim_placeholder_open" to="." method="_on_cam_anim_placeholder_open_timeout"]
+[connection signal="timeout" from="cam_anim_placeholder_close" to="." method="_on_cam_anim_placeholder_close_timeout"]
+[connection signal="timeout" from="candy_timer" to="." method="_on_candy_timer_timeout"]
+[connection signal="timeout" from="cindy_timer" to="." method="_on_cindy_timer_timeout"]
+[connection signal="timeout" from="cam_jumpscare_timer" to="." method="_on_cam_jumpscare_timer_timeout"]
+[connection signal="timeout" from="vinnie_timer" to="." method="_on_vinnie_timer_timeout"]
+[connection signal="timeout" from="vinnie_advance_timer" to="." method="_on_vinnie_advance_timer_timeout"]
+[connection signal="timeout" from="old_candy_timer" to="." method="_on_old_candy_timer_timeout"]
+[connection signal="timeout" from="penguin_timer" to="." method="_on_penguin_timer_timeout"]
+[connection signal="timeout" from="blank_timer" to="." method="_on_blank_timer_timeout"]
+[connection signal="timeout" from="audio_timer" to="." method="_on_audio_timer_timeout"]
+[connection signal="timeout" from="chester_timer" to="." method="_on_chester_timer_timeout"]
+[connection signal="timeout" from="cat_timer" to="." method="_on_cat_timer_timeout"]
+[connection signal="timeout" from="rat_timer" to="." method="_on_rat_timer_timeout"]
+[connection signal="timeout" from="rat_run_timer" to="." method="_on_rat_run_timer_timeout"]
+[connection signal="timeout" from="night1_ai_increase_timer" to="." method="_on_night_1_ai_increase_timer_timeout"]
+[connection signal="DataRecieved" from="arduino" to="." method="_on_arduino_data_recieved"]
+[connection signal="button_down" from="office_buttons/cam_button" to="." method="_on_cam_button_button_down"]
+[connection signal="mouse_entered" from="office_buttons/cam_button" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="office_buttons/cam_button" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="button_down" from="office_buttons/left_door_button" to="." method="_on_left_door_button_down"]
+[connection signal="button_down" from="office_buttons/right_door_button" to="." method="_on_right_door_button_down"]
+[connection signal="button_down" from="office_buttons/vent_door_button" to="." method="_on_vent_door_button_down"]

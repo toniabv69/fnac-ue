@@ -1,0 +1,345 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhofnn8eg8qta"]
+
+[ext_resource type="Script" uid="uid://cp6d5x8w8lwq2" path="res://custom_night.gd" id="1_b7ss6"]
+[ext_resource type="AudioStream" uid="uid://c1yp7rb4rk7bx" path="res://assets/audio/custom.mp3" id="2_xb78a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3wvm"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_080t1"]
+font_size = 32
+
+[node name="custom_night" type="Node2D"]
+script = ExtResource("1_b7ss6")
+
+[node name="candy_ai_label" type="Label" parent="."]
+offset_left = 215.0
+offset_top = 388.0
+offset_right = 273.0
+offset_bottom = 446.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="cindy_ai_label" type="Label" parent="."]
+offset_left = 515.0
+offset_top = 388.0
+offset_right = 573.0
+offset_bottom = 446.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="vinnie_ai_label" type="Label" parent="."]
+offset_left = 815.0
+offset_top = 388.0
+offset_right = 873.0
+offset_bottom = 446.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="old_candy_ai_label" type="Label" parent="."]
+offset_left = 1115.0
+offset_top = 388.0
+offset_right = 1173.0
+offset_bottom = 446.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="penguin_ai_label" type="Label" parent="."]
+offset_left = 1415.0
+offset_top = 388.0
+offset_right = 1473.0
+offset_bottom = 446.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="blank_ai_label" type="Label" parent="."]
+offset_left = 365.0
+offset_top = 788.0
+offset_right = 423.0
+offset_bottom = 846.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="chester_ai_label" type="Label" parent="."]
+offset_left = 665.0
+offset_top = 788.0
+offset_right = 723.0
+offset_bottom = 846.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="rat_ai_label" type="Label" parent="."]
+offset_left = 965.0
+offset_top = 788.0
+offset_right = 1023.0
+offset_bottom = 846.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="cat_ai_label" type="Label" parent="."]
+offset_left = 1265.0
+offset_top = 788.0
+offset_right = 1323.0
+offset_bottom = 846.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3wvm")
+
+[node name="audio_custom_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xb78a")
+volume_db = -21.168
+autoplay = true
+
+[node name="candy" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 328.0
+offset_right = 287.0
+offset_bottom = 373.0
+text = "Candy"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="cindy" type="Label" parent="."]
+offset_left = 491.0
+offset_top = 328.0
+offset_right = 587.0
+offset_bottom = 373.0
+text = "Cindy"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="vinnie" type="Label" parent="."]
+offset_left = 792.0
+offset_top = 328.0
+offset_right = 889.0
+offset_bottom = 373.0
+text = "Vinnie"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="old_candy" type="Label" parent="."]
+offset_left = 1065.0
+offset_top = 328.0
+offset_right = 1224.0
+offset_bottom = 373.0
+text = "Old Candy"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="penguin" type="Label" parent="."]
+offset_left = 1376.0
+offset_top = 330.0
+offset_right = 1472.0
+offset_bottom = 375.0
+text = "Penguin"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="blank" type="Label" parent="."]
+offset_left = 343.0
+offset_top = 728.0
+offset_right = 439.0
+offset_bottom = 773.0
+text = "Blank"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="chester" type="Label" parent="."]
+offset_left = 631.0
+offset_top = 728.0
+offset_right = 750.0
+offset_bottom = 773.0
+text = "Chester"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="rat" type="Label" parent="."]
+offset_left = 951.0
+offset_top = 728.0
+offset_right = 1047.0
+offset_bottom = 773.0
+text = "Rat"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="cat" type="Label" parent="."]
+offset_left = 1248.0
+offset_top = 728.0
+offset_right = 1344.0
+offset_bottom = 773.0
+text = "Cat"
+label_settings = SubResource("LabelSettings_080t1")
+
+[node name="buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back_button" type="Button" parent="buttons"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 250.0
+offset_bottom = 125.0
+text = "Back"
+
+[node name="candy_down_button" type="Button" parent="buttons"]
+offset_left = 150.0
+offset_top = 400.0
+offset_right = 190.0
+offset_bottom = 440.0
+text = "<"
+
+[node name="candy_up_button" type="Button" parent="buttons"]
+offset_left = 300.0
+offset_top = 400.0
+offset_right = 340.0
+offset_bottom = 440.0
+text = ">"
+
+[node name="cindy_down_button" type="Button" parent="buttons"]
+offset_left = 450.0
+offset_top = 400.0
+offset_right = 490.0
+offset_bottom = 440.0
+text = "<"
+
+[node name="cindy_up_button" type="Button" parent="buttons"]
+offset_left = 600.0
+offset_top = 400.0
+offset_right = 640.0
+offset_bottom = 440.0
+text = ">"
+
+[node name="vinnie_down_button" type="Button" parent="buttons"]
+offset_left = 750.0
+offset_top = 400.0
+offset_right = 790.0
+offset_bottom = 440.0
+text = "<"
+
+[node name="vinnie_up_button" type="Button" parent="buttons"]
+offset_left = 900.0
+offset_top = 400.0
+offset_right = 940.0
+offset_bottom = 440.0
+text = ">"
+
+[node name="old_candy_down_button" type="Button" parent="buttons"]
+offset_left = 1050.0
+offset_top = 400.0
+offset_right = 1090.0
+offset_bottom = 440.0
+text = "<"
+
+[node name="old_candy_up_button" type="Button" parent="buttons"]
+offset_left = 1200.0
+offset_top = 400.0
+offset_right = 1240.0
+offset_bottom = 440.0
+text = ">"
+
+[node name="penguin_down_button" type="Button" parent="buttons"]
+offset_left = 1350.0
+offset_top = 400.0
+offset_right = 1390.0
+offset_bottom = 440.0
+text = "<"
+
+[node name="penguin_up_button" type="Button" parent="buttons"]
+offset_left = 1500.0
+offset_top = 400.0
+offset_right = 1540.0
+offset_bottom = 440.0
+text = ">"
+
+[node name="blank_down_button" type="Button" parent="buttons"]
+offset_left = 300.0
+offset_top = 800.0
+offset_right = 340.0
+offset_bottom = 840.0
+text = "<"
+
+[node name="blank_up_button" type="Button" parent="buttons"]
+offset_left = 450.0
+offset_top = 800.0
+offset_right = 490.0
+offset_bottom = 840.0
+text = ">"
+
+[node name="chester_down_button" type="Button" parent="buttons"]
+offset_left = 600.0
+offset_top = 800.0
+offset_right = 640.0
+offset_bottom = 840.0
+text = "<"
+
+[node name="chester_up_button" type="Button" parent="buttons"]
+offset_left = 750.0
+offset_top = 800.0
+offset_right = 790.0
+offset_bottom = 840.0
+text = ">"
+
+[node name="rat_down_button" type="Button" parent="buttons"]
+offset_left = 900.0
+offset_top = 800.0
+offset_right = 940.0
+offset_bottom = 840.0
+text = "<"
+
+[node name="rat_up_button" type="Button" parent="buttons"]
+offset_left = 1050.0
+offset_top = 800.0
+offset_right = 1090.0
+offset_bottom = 840.0
+text = ">"
+
+[node name="cat_down_button" type="Button" parent="buttons"]
+offset_left = 1200.0
+offset_top = 800.0
+offset_right = 1240.0
+offset_bottom = 840.0
+text = "<"
+
+[node name="cat_up_button" type="Button" parent="buttons"]
+offset_left = 1350.0
+offset_top = 800.0
+offset_right = 1390.0
+offset_bottom = 840.0
+text = ">"
+
+[node name="start_button" type="Button" parent="buttons"]
+offset_left = 1630.0
+offset_top = 940.0
+offset_right = 1830.0
+offset_bottom = 1015.0
+text = "Start"
+
+[node name="set_all_20" type="Button" parent="buttons"]
+offset_left = 1014.0
+offset_top = 940.0
+offset_right = 1214.0
+offset_bottom = 1015.0
+text = "Set All 20"
+
+[node name="set_all_0" type="Button" parent="buttons"]
+offset_left = 538.0
+offset_top = 940.0
+offset_right = 738.0
+offset_bottom = 1015.0
+text = "Set All 0"
+
+[connection signal="button_up" from="buttons/back_button" to="." method="_on_back_button_up"]
+[connection signal="button_down" from="buttons/candy_down_button" to="." method="_on_candy_down_button_down"]
+[connection signal="button_down" from="buttons/candy_up_button" to="." method="_on_candy_up_button_down"]
+[connection signal="button_down" from="buttons/cindy_down_button" to="." method="_on_cindy_down_button_down"]
+[connection signal="button_down" from="buttons/cindy_up_button" to="." method="_on_cindy_up_button_down"]
+[connection signal="button_down" from="buttons/vinnie_down_button" to="." method="_on_vinnie_down_button_down"]
+[connection signal="button_down" from="buttons/vinnie_up_button" to="." method="_on_vinnie_up_button_down"]
+[connection signal="button_down" from="buttons/old_candy_down_button" to="." method="_on_old_candy_down_button_down"]
+[connection signal="button_down" from="buttons/old_candy_up_button" to="." method="_on_old_candy_up_button_down"]
+[connection signal="button_down" from="buttons/penguin_down_button" to="." method="_on_penguin_down_button_down"]
+[connection signal="button_down" from="buttons/penguin_up_button" to="." method="_on_penguin_up_button_down"]
+[connection signal="button_down" from="buttons/blank_down_button" to="." method="_on_blank_down_button_down"]
+[connection signal="button_down" from="buttons/blank_up_button" to="." method="_on_blank_up_button_down"]
+[connection signal="button_down" from="buttons/chester_down_button" to="." method="_on_chester_down_button_down"]
+[connection signal="button_down" from="buttons/chester_up_button" to="." method="_on_chester_up_button_down"]
+[connection signal="button_down" from="buttons/rat_down_button" to="." method="_on_rat_down_button_down"]
+[connection signal="button_down" from="buttons/rat_up_button" to="." method="_on_rat_up_button_down"]
+[connection signal="button_down" from="buttons/cat_down_button" to="." method="_on_cat_down_button_down"]
+[connection signal="button_down" from="buttons/cat_up_button" to="." method="_on_cat_up_button_down"]
+[connection signal="button_up" from="buttons/start_button" to="." method="_on_start_button_up"]
+[connection signal="button_down" from="buttons/set_all_20" to="." method="_on_set_all_20_button_down"]
+[connection signal="button_down" from="buttons/set_all_0" to="." method="_on_set_all_0_button_down"]

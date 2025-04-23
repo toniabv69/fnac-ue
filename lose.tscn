@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd5c6yua7qfne"]
+
+[ext_resource type="Script" uid="uid://b4dv6brj47hju" path="res://lose.gd" id="1_ekdwi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekh4b"]
+font_size = 65
+
+[node name="lose" type="Node2D"]
+script = ExtResource("1_ekdwi")
+
+[node name="you_lose" type="Label" parent="."]
+offset_left = 800.0
+offset_top = 500.0
+offset_right = 1172.0
+offset_bottom = 593.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ekh4b")

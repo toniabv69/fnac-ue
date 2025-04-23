@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cge3uiuhq8abn"]
+
+[ext_resource type="Script" uid="uid://cbb3v1xfsovlc" path="res://pre_night.gd" id="1_qi3vs"]
+[ext_resource type="AudioStream" uid="uid://dyrbvo5jsylob" path="res://assets/audio/cam_switch.mp3" id="2_m606f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pyhda"]
+font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_ly8gd"]
+font_size = 44
+
+[node name="pre_night" type="Node2D"]
+script = ExtResource("1_qi3vs")
+
+[node name="night" type="Label" parent="."]
+offset_left = 920.0
+offset_top = 500.0
+offset_right = 960.0
+offset_bottom = 561.0
+label_settings = SubResource("LabelSettings_pyhda")
+
+[node name="12_am" type="Label" parent="."]
+offset_left = 930.0
+offset_top = 600.0
+offset_right = 1061.0
+offset_bottom = 664.0
+text = "12 AM"
+label_settings = SubResource("LabelSettings_ly8gd")
+
+[node name="audio_effect_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_m606f")
+volume_db = -16.136
+autoplay = true
