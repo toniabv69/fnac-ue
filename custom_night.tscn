@@ -168,6 +168,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="back_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 250.0
@@ -175,6 +176,7 @@ offset_bottom = 125.0
 text = "Back"
 
 [node name="candy_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 150.0
 offset_top = 400.0
 offset_right = 190.0
@@ -182,6 +184,7 @@ offset_bottom = 440.0
 text = "<"
 
 [node name="candy_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 400.0
 offset_right = 340.0
@@ -189,6 +192,7 @@ offset_bottom = 440.0
 text = ">"
 
 [node name="cindy_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 450.0
 offset_top = 400.0
 offset_right = 490.0
@@ -196,6 +200,7 @@ offset_bottom = 440.0
 text = "<"
 
 [node name="cindy_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 600.0
 offset_top = 400.0
 offset_right = 640.0
@@ -203,6 +208,7 @@ offset_bottom = 440.0
 text = ">"
 
 [node name="vinnie_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 750.0
 offset_top = 400.0
 offset_right = 790.0
@@ -210,6 +216,7 @@ offset_bottom = 440.0
 text = "<"
 
 [node name="vinnie_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 900.0
 offset_top = 400.0
 offset_right = 940.0
@@ -217,6 +224,7 @@ offset_bottom = 440.0
 text = ">"
 
 [node name="old_candy_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1050.0
 offset_top = 400.0
 offset_right = 1090.0
@@ -224,6 +232,7 @@ offset_bottom = 440.0
 text = "<"
 
 [node name="old_candy_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1200.0
 offset_top = 400.0
 offset_right = 1240.0
@@ -231,6 +240,7 @@ offset_bottom = 440.0
 text = ">"
 
 [node name="penguin_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1350.0
 offset_top = 400.0
 offset_right = 1390.0
@@ -238,6 +248,7 @@ offset_bottom = 440.0
 text = "<"
 
 [node name="penguin_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1500.0
 offset_top = 400.0
 offset_right = 1540.0
@@ -245,6 +256,7 @@ offset_bottom = 440.0
 text = ">"
 
 [node name="blank_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 800.0
 offset_right = 340.0
@@ -252,6 +264,7 @@ offset_bottom = 840.0
 text = "<"
 
 [node name="blank_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 450.0
 offset_top = 800.0
 offset_right = 490.0
@@ -259,6 +272,7 @@ offset_bottom = 840.0
 text = ">"
 
 [node name="chester_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 600.0
 offset_top = 800.0
 offset_right = 640.0
@@ -266,6 +280,7 @@ offset_bottom = 840.0
 text = "<"
 
 [node name="chester_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 750.0
 offset_top = 800.0
 offset_right = 790.0
@@ -273,6 +288,7 @@ offset_bottom = 840.0
 text = ">"
 
 [node name="rat_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 900.0
 offset_top = 800.0
 offset_right = 940.0
@@ -280,6 +296,7 @@ offset_bottom = 840.0
 text = "<"
 
 [node name="rat_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1050.0
 offset_top = 800.0
 offset_right = 1090.0
@@ -287,6 +304,7 @@ offset_bottom = 840.0
 text = ">"
 
 [node name="cat_down_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1200.0
 offset_top = 800.0
 offset_right = 1240.0
@@ -294,6 +312,7 @@ offset_bottom = 840.0
 text = "<"
 
 [node name="cat_up_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1350.0
 offset_top = 800.0
 offset_right = 1390.0
@@ -301,6 +320,7 @@ offset_bottom = 840.0
 text = ">"
 
 [node name="start_button" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1630.0
 offset_top = 940.0
 offset_right = 1830.0
@@ -308,6 +328,7 @@ offset_bottom = 1015.0
 text = "Start"
 
 [node name="set_all_20" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 1014.0
 offset_top = 940.0
 offset_right = 1214.0
@@ -315,6 +336,7 @@ offset_bottom = 1015.0
 text = "Set All 20"
 
 [node name="set_all_0" type="Button" parent="buttons"]
+layout_mode = 0
 offset_left = 538.0
 offset_top = 940.0
 offset_right = 738.0
