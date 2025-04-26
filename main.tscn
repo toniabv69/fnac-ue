@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://vhq8isih58p2"]
+[gd_scene load_steps=5 format=3 uid="uid://vhq8isih58p2"]
 
 [ext_resource type="Script" uid="uid://un2pvj44q542" path="res://main.gd" id="1_kerfr"]
 [ext_resource type="AudioStream" uid="uid://cm2yspo2arkn2" path="res://assets/audio/menu.mp3" id="2_70kau"]
+[ext_resource type="Script" uid="uid://bnddqvsf3cgup" path="res://addons/arduino/arduino.cs" id="3_h2yge"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xoof"]
 font_size = 44
@@ -63,7 +64,13 @@ stream = ExtResource("2_70kau")
 volume_db = -20.343
 autoplay = true
 
+[node name="arduino" type="Node" parent="."]
+script = ExtResource("3_h2yge")
+PortName = "/dev/ttyACM0"
+metadata/_custom_type_script = "uid://bnddqvsf3cgup"
+
 [connection signal="button_up" from="new_game_button" to="." method="_on_new_game_button_up"]
 [connection signal="button_up" from="continue_button" to="." method="_on_continue_button_up"]
 [connection signal="button_up" from="quit_button" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="custom_night_button" to="." method="_on_custom_night_button_up"]
+[connection signal="DataRecieved" from="arduino" to="." method="_on_arduino_data_recieved"]

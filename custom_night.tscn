@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhofnn8eg8qta"]
+[gd_scene load_steps=6 format=3 uid="uid://bhofnn8eg8qta"]
 
 [ext_resource type="Script" uid="uid://cp6d5x8w8lwq2" path="res://custom_night.gd" id="1_b7ss6"]
 [ext_resource type="AudioStream" uid="uid://c1yp7rb4rk7bx" path="res://assets/audio/custom.mp3" id="2_xb78a"]
+[ext_resource type="Script" uid="uid://bnddqvsf3cgup" path="res://addons/arduino/arduino.cs" id="3_b2q62"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h3wvm"]
 font_size = 40
@@ -343,6 +344,11 @@ offset_right = 738.0
 offset_bottom = 1015.0
 text = "Set All 0"
 
+[node name="arduino" type="Node" parent="."]
+script = ExtResource("3_b2q62")
+PortName = "/dev/ttyACM0"
+metadata/_custom_type_script = "uid://bnddqvsf3cgup"
+
 [connection signal="button_up" from="buttons/back_button" to="." method="_on_back_button_up"]
 [connection signal="button_down" from="buttons/candy_down_button" to="." method="_on_candy_down_button_down"]
 [connection signal="button_down" from="buttons/candy_up_button" to="." method="_on_candy_up_button_down"]
@@ -365,3 +371,4 @@ text = "Set All 0"
 [connection signal="button_up" from="buttons/start_button" to="." method="_on_start_button_up"]
 [connection signal="button_down" from="buttons/set_all_20" to="." method="_on_set_all_20_button_down"]
 [connection signal="button_down" from="buttons/set_all_0" to="." method="_on_set_all_0_button_down"]
+[connection signal="DataRecieved" from="arduino" to="." method="_on_arduino_data_recieved"]

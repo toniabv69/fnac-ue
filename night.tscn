@@ -513,7 +513,7 @@ texture = ExtResource("21_oe6qj")
 
 [node name="arduino" type="Node" parent="."]
 script = ExtResource("22_m3c6e")
-PortName = "ttyACM0"
+PortName = "/dev/ttyACM0"
 metadata/_custom_type_script = "uid://bnddqvsf3cgup"
 
 [node name="office_buttons" type="Control" parent="."]

@@ -9,6 +9,13 @@ var blank_ai = 0
 var chester_ai = 0
 var rat_ai = 0
 var cat_ai = 0
+var previous_horizontal = 1
+var previous_vertical = 1
+var previous_down = 1
+var previous_up = 1
+var previous_left = 1
+var previous_right = 1
+var previous_start = 1
 
 func _ready():
 	$buttons/start_button.grab_focus()
@@ -132,3 +139,50 @@ func _on_set_all_0_button_down():
 	rat_ai = 0
 	old_candy_ai = 0
 	penguin_ai = 0
+	
+func _on_arduino_data_recieved(myString: String) -> void:
+	var old_result = myString.split(" ")
+	var result = []
+	result.resize(len(old_result))
+	for i in range(len(old_result)):
+		result[i] = round(float(old_result[i]))
+	var current_horizontal = float(result[1])
+	var current_vertical = float(result[0])
+	var right_button_pressed = int(result[3])
+	var left_button_pressed = int(result[4])
+	var down_button_pressed = int(result[5])
+	var up_button_pressed = int(result[6])
+	var start_button_pressed = int(result[7])
+	if (current_horizontal > 0.3 or current_horizontal < -0.3) and previous_horizontal == 0:
+		var event = InputEventKey.new()
+		event.keycode = (KEY_RIGHT if current_horizontal > 0 else KEY_LEFT)
+		event.pressed = true
+		Input.parse_input_event(event)
+		
+		event = InputEventKey.new()
+		event.keycode = (KEY_RIGHT if current_horizontal > 0 else KEY_LEFT)
+		event.pressed = false
+		Input.parse_input_event(event)
+	previous_horizontal = current_horizontal
+	if (current_vertical > 0.3 or current_vertical < -0.3) and previous_vertical == 0:
+		var event = InputEventKey.new()
+		event.keycode = (KEY_UP if current_vertical > 0 else KEY_DOWN)
+		event.pressed = true
+		Input.parse_input_event(event)
+		
+		event = InputEventKey.new()
+		event.keycode = (KEY_UP if current_vertical > 0 else KEY_DOWN)
+		event.pressed = false
+		Input.parse_input_event(event)
+	previous_vertical = current_vertical
+	if down_button_pressed and previous_down == 0:
+		var event = InputEventKey.new()
+		event.keycode = KEY_ENTER
+		event.pressed = true
+		Input.parse_input_event(event)
+		
+		event = InputEventKey.new()
+		event.keycode = KEY_ENTER
+		event.pressed = false
+		Input.parse_input_event(event)
+	previous_down = down_button_pressed

@@ -1,6 +1,12 @@
 extends Node2D
 
-var previous_inputs = [1, 1, 1, 1, 1, 1, 1, 1]
+var previous_start = 1
+var previous_horizontal = 1
+var previous_vertical = 1
+var previous_down = 1
+var previous_up = 1
+var previous_left = 1
+var previous_right = 1
 var cam_button_enable = true
 var cams_on = false
 var controller_wind = false
@@ -185,7 +191,7 @@ func _process(delta):
 	if power > 0:
 		power -= (usage / 2.0) * delta * GlobalVars.usage_by_night[GlobalVars.night - 1]
 	if (wind and GlobalVars.holding) or controller_wind:
-		music_box += delta * 100
+		music_box += delta * 175
 		if music_box > 1200: 
 			music_box = 1200
 	else:
@@ -269,6 +275,7 @@ func _input(event):
 			get_tree().change_scene_to_file("res://main.tscn")
 	
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$office_buttons/cam_button.grab_focus()
 	$night_text.text = "Night " + str(GlobalVars.night)
 	$candy_timer.start(candy.move_timer)
@@ -812,15 +819,19 @@ func _on_night_1_ai_increase_timer_timeout():
 
 
 func _on_arduino_data_recieved(myString: String) -> void:
-	var result = myString.split(" ")
-	var current_horizontal = result[0]
-	var current_vertical = result[1]
-	var right_button_pressed = result[2]
-	var left_button_pressed = result[3]
-	var down_button_pressed = result[4]
-	var up_button_pressed = result[5]
-	var start_button_pressed = result[7]
-	if (current_horizontal > 0.3 or current_horizontal < -0.3) and (-0.3 <= previous_inputs[0] <= 0.3):
+	var old_result = myString.split(" ")
+	var result = []
+	result.resize(len(old_result))
+	for i in range(len(old_result)):
+		result[i] = float(old_result[i])
+	var current_horizontal = float(result[1])
+	var current_vertical = float(result[0])
+	var right_button_pressed = int(result[3])
+	var left_button_pressed = int(result[4])
+	var down_button_pressed = int(result[5])
+	var up_button_pressed = int(result[6])
+	var start_button_pressed = int(result[7])
+	if (current_horizontal > 0.3 or current_horizontal < -0.3) and previous_horizontal == 0:
 		var event = InputEventKey.new()
 		event.keycode = (KEY_RIGHT if current_horizontal > 0 else KEY_LEFT)
 		event.pressed = true
@@ -830,7 +841,8 @@ func _on_arduino_data_recieved(myString: String) -> void:
 		event.keycode = (KEY_RIGHT if current_horizontal > 0 else KEY_LEFT)
 		event.pressed = false
 		Input.parse_input_event(event)
-	if (current_vertical > 0.3 or current_vertical < -0.3) and (-0.3 <= previous_inputs[1] <= 0.3):
+	previous_horizontal = current_horizontal
+	if (current_vertical > 0.3 or current_vertical < -0.3) and previous_vertical == 0:
 		var event = InputEventKey.new()
 		event.keycode = (KEY_UP if current_vertical > 0 else KEY_DOWN)
 		event.pressed = true
@@ -840,26 +852,44 @@ func _on_arduino_data_recieved(myString: String) -> void:
 		event.keycode = (KEY_UP if current_vertical > 0 else KEY_DOWN)
 		event.pressed = false
 		Input.parse_input_event(event)
-	if right_button_pressed and previous_inputs[2] == 0:
+	previous_vertical = current_vertical
+	if right_button_pressed and previous_right == 0:
 		if cams_on and $cam_map/cam_buttons/audio_button.visible == true:
 			_on_audio_button_down()
 		else:
 			_on_right_door_button_down()
-	if left_button_pressed and previous_inputs[3] == 0:
+	previous_right = right_button_pressed
+	if left_button_pressed:
 		if cams_on and $cam_map/cam_buttons/wind_button.visible == true:
 			controller_wind = true
-		else:
+		elif previous_left == 0:
+			controller_wind = false
 			_on_left_door_button_down()
-	if up_button_pressed and previous_inputs[4] == 0:
+		else:
+			controller_wind = false
+	else:
+		controller_wind = false
+	previous_left = left_button_pressed
+	if up_button_pressed and previous_up == 0:
 		if cams_on:
-			Input.action_press("ui_accept")
+			var event = InputEventKey.new()
+			event.keycode = KEY_ENTER
+			event.pressed = true
+			Input.parse_input_event(event)
+		
+			event = InputEventKey.new()
+			event.keycode = KEY_ENTER
+			event.pressed = false
+			Input.parse_input_event(event)
 		else:
 			_on_vent_door_button_down()
-	if down_button_pressed and previous_inputs[5] == 0:
+	previous_up = up_button_pressed
+	if down_button_pressed and previous_down == 0:
 		_on_cam_button_button_down()
-	if start_button_pressed and previous_inputs[6] == 0:
+	previous_down = down_button_pressed
+	if start_button_pressed and previous_start == 0:
 		get_tree().change_scene_to_file("res://main.tscn")
-	previous_inputs = result
+	previous_start = start_button_pressed
 	
 #func _on_arduino_data_recieved(myString: String) -> void:
 	#print(myString)
