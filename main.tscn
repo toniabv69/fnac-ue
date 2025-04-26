@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vhq8isih58p2"]
+[gd_scene load_steps=6 format=3 uid="uid://vhq8isih58p2"]
 
 [ext_resource type="Script" uid="uid://un2pvj44q542" path="res://main.gd" id="1_kerfr"]
 [ext_resource type="AudioStream" uid="uid://cm2yspo2arkn2" path="res://assets/audio/menu.mp3" id="2_70kau"]
 [ext_resource type="Script" uid="uid://bnddqvsf3cgup" path="res://addons/arduino/arduino.cs" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://shlnwg8lufis" path="res://assets/textures/feddy.png" id="4_1bvp3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xoof"]
 font_size = 44
@@ -68,6 +69,10 @@ autoplay = true
 script = ExtResource("3_h2yge")
 PortName = "/dev/ttyACM0"
 metadata/_custom_type_script = "uid://bnddqvsf3cgup"
+
+[node name="feddy" type="Sprite2D" parent="."]
+position = Vector2(1556, 506)
+texture = ExtResource("4_1bvp3")
 
 [connection signal="button_up" from="new_game_button" to="." method="_on_new_game_button_up"]
 [connection signal="button_up" from="continue_button" to="." method="_on_continue_button_up"]

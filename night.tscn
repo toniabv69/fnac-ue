@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bshrvoxmlmqe3"]
+[gd_scene load_steps=32 format=3 uid="uid://bshrvoxmlmqe3"]
 
 [ext_resource type="Script" uid="uid://g67ycfkj4ctr" path="res://night.gd" id="1_potvd"]
 [ext_resource type="Texture2D" uid="uid://b667lyr037krt" path="res://assets/textures/cam_button.png" id="1_ti0gc"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://bnddqvsf3cgup" path="res://addons/arduino/arduino.cs" id="22_m3c6e"]
 [ext_resource type="Texture2D" uid="uid://dcr01xy3f6osa" path="res://assets/textures/door_texture.png" id="23_jdj08"]
 [ext_resource type="Texture2D" uid="uid://c4dkll275gkbx" path="res://assets/textures/vent_texture.png" id="24_4fvn6"]
+[ext_resource type="Texture2D" uid="uid://shlnwg8lufis" path="res://assets/textures/feddy.png" id="25_4fvn6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hfxqj"]
 font_size = 34
@@ -562,6 +563,13 @@ offset_right = 800.0
 offset_bottom = 230.0
 focus_mode = 0
 texture_normal = ExtResource("4_w6f1k")
+
+[node name="jumpscare_sprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(995, 542)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("25_4fvn6")
 
 [connection signal="button_down" from="cam_map/cam_buttons/cam_1a" to="." method="_on_cam_1a_button_down"]
 [connection signal="button_down" from="cam_map/cam_buttons/cam_1b" to="." method="_on_cam_1b_button_down"]
